@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+    public ScoreScript scoreScript;
     public float waktu;
     public float MaximumWaktu;
 
@@ -26,7 +27,15 @@ public class Timer : MonoBehaviour
     {
         if (waktu <= 0)
         {
-            Load();
+            if(scoreScript.score <= 100)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
+            else
+            {
+                SceneManager.LoadScene("YouWin");
+            } 
+
         }
     }
 
@@ -42,9 +51,9 @@ public class Timer : MonoBehaviour
 
     }
 
-    public void Load()
-    {
-        SceneManager.LoadScene("GameOver");
+    // public void Load()
+    // {
+    //     SceneManager.LoadScene("GameOver");
 
-    }
+    // }
 }

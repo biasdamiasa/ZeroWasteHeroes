@@ -1144,8 +1144,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -712.9224, y: 437.52}
-  m_SizeDelta: {x: 334.1553, y: 72.953}
+  m_AnchoredPosition: {x: -530, y: 428}
+  m_SizeDelta: {x: 655.2006, y: 72.953}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2031262205
 GameObject:
@@ -1176,6 +1176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f0ff8cb4927184a9d6a780c10fd46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreScript: {fileID: 1252371960}
   waktu: 61
   MaximumWaktu: 60
   TextTimer: {fileID: 70684927}
