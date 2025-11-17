@@ -8,6 +8,11 @@ public class MainMenu : MonoBehaviour
     
     public TMP_Text objectText;// Start is called once before the first execution of Update after the MonoBehaviour is created
     
+    public void Mulai()
+    {
+        Debug.Log("Mulai Permainan");
+        SceneManager.LoadScene("GamePlay");
+    }
     public void Credits()
     {
         Debug.Log("Credits");
