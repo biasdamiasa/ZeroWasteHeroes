@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScoreScript : MonoBehaviour
 {
@@ -58,7 +59,8 @@ public class ScoreScript : MonoBehaviour
                     Debug.Log("racun diklik");
                     // Debug.Log("Object dihapus: " + objectHapus.name);
                     Destroy(objectHapus);
-                    score = 0;
+                    //score = 0;
+                    SceneManager.LoadScene("Gameover");
                 }
                 scoreText.text = "Score: " + score.ToString();
             }
