@@ -22,11 +22,7 @@ public class Timer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        StartCoroutine(HitungTimer());
-        if(PlayerPrefs.HasKey("highscore"))
-        {
-            highScore = PlayerPrefs.GetInt("highscore");
-        }
+        StartCoroutine(HitungTimer());        
     }
 
     // Update is called once per frame
@@ -34,25 +30,16 @@ public class Timer : MonoBehaviour
     {
         if (waktu <= 0)
         {
-            PlayerPrefs.SetInt("lastscore", scoreScript.score);
+            scoreScript.saveScore();
 
-            if(scoreScript.score > highScore)
-            {
-                highScore = scoreScript.score;
-                PlayerPrefs.SetInt("highscore", highScore);                
-            }
-
-            PlayerPrefs.Save();
-
-            if(scoreScript.score < 10)
+            if(scoreScript.score < scoreScript.targetScore)
             {
                 SceneManager.LoadScene("GameOver");
             }
             else
             {
                 SceneManager.LoadScene("YouWin");
-            } 
-
+            }
         }
     }
 

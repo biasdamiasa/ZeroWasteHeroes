@@ -8,10 +8,16 @@ public class ScoreScript : MonoBehaviour
     public TMP_Text scoreText;
 
     public int score;
+    public int targetScore = 100;
+    public int highScore;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        score = 0;        
+        score = 0;
+        if(PlayerPrefs.HasKey("highscore"))
+        {
+            highScore = PlayerPrefs.GetInt("highscore");
+        }        
     }
 
     public void tambahScore()
@@ -22,6 +28,19 @@ public class ScoreScript : MonoBehaviour
     public void kurangScore()
     {
         score -= 2;
+    }
+
+    public void saveScore()
+    {
+        PlayerPrefs.SetInt("lastscore", score);
+
+            if(score > highScore)
+            {
+                highScore = score;
+                PlayerPrefs.SetInt("highscore", highScore);                
+            }
+
+        PlayerPrefs.Save();
     }
 
     // Update is called once per frame
@@ -60,6 +79,7 @@ public class ScoreScript : MonoBehaviour
                     // Debug.Log("Object dihapus: " + objectHapus.name);
                     Destroy(objectHapus);
                     score = 0;
+                    PlayerPrefs.SetInt("lastscore", score);
                     SceneManager.LoadScene("GameOver");
                 }
                 scoreText.text = "Score: " + score.ToString();
