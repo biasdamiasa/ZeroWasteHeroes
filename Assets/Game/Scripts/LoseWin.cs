@@ -5,8 +5,26 @@ using UnityEngine.UI;
 
 public class LoseWin : MonoBehaviour
 {
+    public TMP_Text textHighScore;
+    public int highScore, lastscore;
+    public TMP_Text textScore;
     
-    public TMP_Text objectText;// Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        if(PlayerPrefs.HasKey("highscore"))
+        {
+            highScore = PlayerPrefs.GetInt("highscore");
+            textHighScore.text = "Highscore: " + highScore.ToString();
+        }
+
+        if(PlayerPrefs.HasKey("lastscore"))
+        {
+            lastscore = PlayerPrefs.GetInt("lastscore");
+            textScore.text = "Score: " + lastscore.ToString();
+        }
+    }
+
     public void MainLagi()
     {
         SceneManager.LoadScene("GamePlay");
