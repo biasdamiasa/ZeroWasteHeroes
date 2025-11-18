@@ -27,7 +27,7 @@ public class Timer : MonoBehaviour
     {
         if (waktu <= 0)
         {
-            if(scoreScript.score <= 100)
+            if(scoreScript.score < 100)
             {
                 SceneManager.LoadScene("GameOver");
             }
