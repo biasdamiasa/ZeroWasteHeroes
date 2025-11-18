@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ScoreScript : MonoBehaviour
 {
     public TMP_Text scoreText;
-
+    public AudioObject audioObject;
     public int score;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,6 +44,7 @@ public class ScoreScript : MonoBehaviour
                     // Debug.Log("Object dihapus: " + objectHapus.name);
                     Destroy(objectHapus);
                     tambahScore();
+                    audioObject.putarSFXDaurUlang();
                 }
                 else if(objectTerdeteksi.CompareTag("tdkdaurulang"))
                 {
@@ -52,6 +53,7 @@ public class ScoreScript : MonoBehaviour
                     // Debug.Log("Object dihapus: " + objectHapus.name);
                     Destroy(objectHapus);
                     kurangScore();
+                    audioObject.putarSFXTdkDaurUlang();
                 }
                 else
                 {
@@ -61,6 +63,7 @@ public class ScoreScript : MonoBehaviour
                     Destroy(objectHapus);
                     //score = 0;
                     SceneManager.LoadScene("Gameover");
+                    audioObject.putarSFXRacun();
                 }
                 scoreText.text = "Score: " + score.ToString();
             }
