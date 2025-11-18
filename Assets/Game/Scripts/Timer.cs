@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
@@ -15,11 +16,17 @@ public class Timer : MonoBehaviour
 
     public Coroutine HitungTimerCoroutine;
 
-    public Image ProgresFill;   //refere
+    public Image ProgresFill;
+
+    public int highScore = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartCoroutine(HitungTimer());
+        if(PlayerPrefs.HasKey("highscore"))
+        {
+            highScore = PlayerPrefs.GetInt("highscore");
+        }
     }
 
     // Update is called once per frame
@@ -27,7 +34,17 @@ public class Timer : MonoBehaviour
     {
         if (waktu <= 0)
         {
-            if(scoreScript.score < 100)
+            PlayerPrefs.SetInt("lastscore", scoreScript.score);
+
+            if(scoreScript.score > highScore)
+            {
+                highScore = scoreScript.score;
+                PlayerPrefs.SetInt("highscore", highScore);                
+            }
+
+            PlayerPrefs.Save();
+
+            if(scoreScript.score < 10)
             {
                 SceneManager.LoadScene("GameOver");
             }

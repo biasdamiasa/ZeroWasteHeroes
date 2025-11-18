@@ -1182,6 +1182,7 @@ MonoBehaviour:
   TextTimer: {fileID: 70684927}
   WaktuBerjalan: 1
   ProgresFill: {fileID: 1102855289}
+  highScore: 0
 --- !u!4 &2031262207
 Transform:
   m_ObjectHideFlags: 0
