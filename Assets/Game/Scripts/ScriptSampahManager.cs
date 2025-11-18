@@ -3,25 +3,25 @@ using UnityEngine;
 
 public class ScriptSampahManager : MonoBehaviour
 {
-    public GameObject daurUlangObject;
-    public GameObject tdkDaurUlangObject;
-    public GameObject racunObject;
+    public GameObject daurUlangObject; // untuk menyimpan sampah daur ulang
+    public GameObject tdkDaurUlangObject; //untuk menyimpan objek sampah tdk daur ulang
+    public GameObject racunObject; //untuk menyimpan objek racun
     public bool masihSpawn = true;
 
-    public Sprite[] daftarGambarDaurUlang;
+    public Sprite[] daftarGambarDaurUlang; //sprite untuk menyimpan list gambar DU
     public Sprite[] daftarGambarTdkDaurUlang;
     public Sprite[] daftarGambarRacun;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        StartCoroutine(spawnDaurUlang());
+        StartCoroutine(spawnDaurUlang()); //spawn
         StartCoroutine(spawnTdkDaurUlang());
         StartCoroutine(spawnRacun());
         
     }
 
-    IEnumerator spawnDaurUlang()
+    IEnumerator spawnDaurUlang() //IEnumerator untuk spawn daur ulang
     {
         while (masihSpawn)
         {
@@ -30,6 +30,7 @@ public class ScriptSampahManager : MonoBehaviour
 
             //Instantiate 1 daurUlangObject di spawnPosition kemudian simpan di objectBaru
             GameObject objectBaru = Instantiate(daurUlangObject, spawnPosition, Quaternion.identity);
+            //instantiate ituu membuat objek baru dari prefab yang sudah dibuat
 
             // cek apakah array gambar untuk sampah daur ulang > 0
             if(daftarGambarDaurUlang.Length > 0)
@@ -62,7 +63,8 @@ public class ScriptSampahManager : MonoBehaviour
     {
         while (masihSpawn)
         {
-            yield return new WaitForSeconds(5);            
+            yield return new WaitForSeconds(5);   //untuk kasih delay 5 detik
+            //yield diatas karena kasih delay dulu baru eksekusi task         
             //ambil posisi untuk spawn dengan posisi x antara -8 s.d. 8 dan posisi y tetap di 5
             Vector3 spawnPosition = new Vector3(Random.Range(-8,8), 5, 0);
 

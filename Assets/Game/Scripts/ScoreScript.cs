@@ -14,7 +14,7 @@ public class ScoreScript : MonoBehaviour
     void Start()
     {
         score = 0;
-        if(PlayerPrefs.HasKey("highscore"))
+        if(PlayerPrefs.HasKey("highscore")) //untuk mengambil high score dari player prefs
         {
             highScore = PlayerPrefs.GetInt("highscore");
         }        

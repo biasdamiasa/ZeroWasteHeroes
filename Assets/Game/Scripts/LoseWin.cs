@@ -12,22 +12,22 @@ public class LoseWin : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if(PlayerPrefs.HasKey("highscore"))
+        if(PlayerPrefs.HasKey("highscore")) // untuk ambil nilai highscore
         {
             highScore = PlayerPrefs.GetInt("highscore");
-            textHighScore.text = "Highscore: " + highScore.ToString();
+            textHighScore.text = "Highscore: " + highScore.ToString(); //untuk menampilkan highscore
         }
 
         if(PlayerPrefs.HasKey("lastscore"))
         {
-            lastscore = PlayerPrefs.GetInt("lastscore");
+            lastscore = PlayerPrefs.GetInt("lastscore"); // untuk ambil nilai lastscore karena yang terakhir kita main
             textScore.text = "Score: " + lastscore.ToString();
         }
     }
 
     public void MainLagi()
     {
-        SceneManager.LoadScene("GamePlay");
+        SceneManager.LoadScene("GamePlay"); // untuk pindah ke scene GamePlay
     }
     public void BackToMenu()
     {
@@ -35,7 +35,7 @@ public class LoseWin : MonoBehaviour
     }
     public void ExitGame()
     {
-        Debug.Log("Keluar dari Game");
+        Debug.Log("Keluar dari Game"); 
         
         // Perintah standar untuk keluar dari aplikasi. 
         // Ini hanya akan bekerja saat game sudah di-build (file .exe).

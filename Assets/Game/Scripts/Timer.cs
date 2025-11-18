@@ -14,11 +14,11 @@ public class Timer : MonoBehaviour
     public TMP_Text TextTimer;
     public bool WaktuBerjalan = true;
 
-    public Coroutine HitungTimerCoroutine;
+    // public Coroutine HitungTimerCoroutine;
 
     public Image ProgresFill;
 
-    public int highScore = 0;
+    // public int highScore = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
