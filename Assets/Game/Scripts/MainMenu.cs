@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-using UnityEngine.UI;
+// using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
