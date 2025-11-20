@@ -17,8 +17,7 @@ public class ScriptSampahManager : MonoBehaviour
     {
         StartCoroutine(spawnDaurUlang());
         StartCoroutine(spawnTdkDaurUlang());
-        StartCoroutine(spawnRacun());
-        
+        StartCoroutine(spawnRacun());        
     }
 
     IEnumerator spawnDaurUlang()

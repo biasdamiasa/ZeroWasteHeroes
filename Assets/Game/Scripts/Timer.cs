@@ -2,11 +2,11 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+    //panah di Class Diagram dari timer ke scorescript
     public ScoreScript scoreScript;
     public float waktu;
     public float MaximumWaktu;
